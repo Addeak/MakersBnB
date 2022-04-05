@@ -1,0 +1,11 @@
+<form action="/places/confirmation" method="post">
+  <h2>Fill out this form to request a stay in <%= @place.title %>.</h2>
+  <div>
+    <input type="text" name="customer_name" placeholder="Your name" />
+    <input type="email" name="customer_email" placeholder="Your email" />
+    <input type="date" name="check_in" min="<%= Date.today %>" max="2032-04-04" />
+    <input type="date" name="check_out" min="<%= Date.today + 1 %>" max="2032-04-04" />
+    <textarea name="comments_box" rows="5" cols="30" placeholder="Add any comments here..." />
+    <input type="submit" value="Submit" />
+  </div>
+</form>
