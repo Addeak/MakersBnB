@@ -1,5 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './database_connection_setup'
+require 'place'
+
 
 class MakersBnB < Sinatra::Base
 

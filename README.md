@@ -18,3 +18,15 @@ Wireframe:
 
 [![MowFbS.md.png](https://iili.io/MowFbS.md.png)](https://freeimage.host/i/MowFbS)
 
+## Setting up the databases
+
+To setup the database:
+```CREATE DATABASE makersbnb;```
+To connect to the database:
+```\c makersbnb```
+To setup the test database:
+```CREATE DATABASE makersbnb_test;```
+To connect to the test database:
+```\c makersbnb_test```
+Then follow the commands in the db/migrations directory for each database.
+

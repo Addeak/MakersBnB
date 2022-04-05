@@ -3,6 +3,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require_relative './setup_test_database'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -13,10 +14,13 @@ ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
-
 Capybara.app = MakersBnB
 
 RSpec.configure do |config|
+  config.before(:each) do
+    clear_test_database
+  end
+
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods
