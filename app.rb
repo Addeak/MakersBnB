@@ -11,7 +11,7 @@ class MakersBnB < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
-
+  
   get '/test' do
     'Testing testing'
   end
@@ -25,8 +25,8 @@ class MakersBnB < Sinatra::Base
     erb :'places/list'
   end
 
-  get '/places/request' do
-    @place = Place.new(id: params[:id])
+   get '/places/:id/request' do
+    @place = Place.find(id: params[:id])
     erb :'places/request'
   end
 
