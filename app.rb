@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './database_connection_setup'
-require 'place'
+require_relative './lib/place'
 
 
 class MakersBnB < Sinatra::Base
@@ -14,6 +14,10 @@ class MakersBnB < Sinatra::Base
 
   get '/test' do
     'Testing testing'
+  end
+
+  get '/places/add' do 
+    erb :"places/add"
   end
 
   run! if app_file == $0
