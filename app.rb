@@ -1,11 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './database_connection_setup'
-<<<<<<< HEAD
-require './lib/place'
-=======
 require_relative './lib/place'
->>>>>>> f1f0860482c4dc27686fd94b57fb980677a2f97c
 
 
 class MakersBnB < Sinatra::Base
@@ -17,7 +13,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/places/:id/request' do
-    @place = DatabaseConnection.query("SELECT * FROM places WHERE id = $1;", [params[:id]])
+    @place = Place.find(id: params[:id])
     erb :'places/request'
   end
 

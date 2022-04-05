@@ -1,5 +1,5 @@
 feature 'Adding a new place' do 
-  scenario 'A user can add a new place' do 
+  xscenario 'A user can add a new place' do 
     visit('/places/add')
     fill_in('host_name', with: 'Bob Smith')
     fill_in('host_email', with: 'bobsmith@testmail.com')
