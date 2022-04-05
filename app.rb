@@ -16,5 +16,13 @@ class MakersBnB < Sinatra::Base
     'Testing testing'
   end
 
+  get '/' do
+    redirect '/places/list'
+  end
+
+  get '/places/list' do
+    erb :list
+  end
+
   run! if app_file == $0
 end
