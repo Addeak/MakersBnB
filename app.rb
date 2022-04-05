@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './database_connection_setup'
-require 'place'
+require_relative './lib/place'
 
 
 class MakersBnB < Sinatra::Base
@@ -31,6 +31,10 @@ class MakersBnB < Sinatra::Base
       comments: params[:comments_box]
     )
     erb :'places/confirmation'
+  end
+  
+  get '/places/add' do 
+    erb :"places/add"
   end
 
   run! if app_file == $0
