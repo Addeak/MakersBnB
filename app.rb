@@ -21,7 +21,8 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/places/list' do
-    erb :list
+    @places = Place.all
+    erb :'places/list'
   end
 
   get '/places/request' do
