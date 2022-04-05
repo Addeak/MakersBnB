@@ -1,0 +1,23 @@
+<h1>Welcome to GorillaBnB</h1>
+
+<form action="/places/add" method="get">
+<input type="Submit" value="Add a place" />
+</form>
+
+<div class="list-container"> <!-- this is for styling later> -->
+<% @places.each do |place| %>
+<li class="list-item">
+<span><%= place.place_title %></span>
+<span><%= place.location %></span>
+<span>£<%= place.place_price %> per night</span>
+<span>
+<form action="/places/<%= place.id %>/request" method="get">
+<input type="Submit" value="Request Stay" />
+</form>
+</span>
+<br />
+<span><%= place.description %></span>
+</li>
+<% end %>
+</div>
+

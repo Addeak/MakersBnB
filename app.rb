@@ -11,8 +11,21 @@ class MakersBnB < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
+  
+  get '/test' do
+    'Testing testing'
+  end
 
-  get '/places/:id/request' do
+  get '/' do
+    redirect '/places/list'
+  end
+
+  get '/places/list' do
+    @places = Place.all
+    erb :'places/list'
+  end
+
+   get '/places/:id/request' do
     @place = Place.find(id: params[:id])
     erb :'places/request'
   end
@@ -31,6 +44,18 @@ class MakersBnB < Sinatra::Base
   
   get '/places/add' do 
     erb :"places/add"
+  end
+
+  post '/places' do
+    Place.create(
+      host_name: params[:host_name],
+      host_email: params[:host_email],
+      place_title: params[:place_title],
+      place_price: params[:place_price],
+      location: params[:location],
+      description: params[:description]
+    )
+    redirect('/places')
   end
 
   run! if app_file == $0
