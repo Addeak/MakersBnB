@@ -11,5 +11,19 @@ class Place
     @location = location
     @description = description
   end
-  
+
+  def self.all
+    results = DatabaseConnection.query("SELECT * FROM places")
+    results.map do |place|
+      Place.new(
+        id: place['id'],
+        host_name: place['host_name'],
+        host_email: place['host_email'],
+        place_title: place['place_title'],
+        place_price: place['place_price'],
+        location: place['location'],
+        description: place['description']
+      )
+    end
+  end
 end

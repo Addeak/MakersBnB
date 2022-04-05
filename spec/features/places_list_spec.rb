@@ -39,12 +39,9 @@ feature 'view the list of available places' do
     )
 
     visit('/')
-
-    expect(page).to have_content('Bilbo Baggins')
     expect(page).to have_content('Bag End - cosy cottage in rural location')
-    expect(page).to have_content('£75 per night')
-    expect(page).to have_content('Darth Vader')
+    expect(page).to have_content('£75.00 per night')
     expect(page).to have_content('Death Star - top-tier space station')
-    expect(page).to have_content('£5000 per night')
+    expect(page).to have_content('£5000.00 per night')
   end
 end
