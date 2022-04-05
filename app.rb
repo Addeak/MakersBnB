@@ -16,6 +16,13 @@ class MakersBnB < Sinatra::Base
     'Testing testing'
   end
 
+  get '/' do
+    redirect '/places/list'
+  end
+
+  get '/places/list' do
+    erb :list
+
   get '/places/request' do
     @place = Place.new(id: params[:id])
     erb :'places/request'
@@ -35,6 +42,7 @@ class MakersBnB < Sinatra::Base
   
   get '/places/add' do 
     erb :"places/add"
+
   end
 
   run! if app_file == $0
