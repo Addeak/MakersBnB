@@ -31,3 +31,4 @@ xfeature 'user_authentication' do
 
     expect(page).to have_content('Invalid password!')
   end
+end
