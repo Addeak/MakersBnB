@@ -18,6 +18,10 @@ Wireframe:
 
 [![MowFbS.md.png](https://iili.io/MowFbS.md.png)](https://freeimage.host/i/MowFbS)
 
+Wireframe 2:
+
+[![MNJUEF.md.png](https://iili.io/MNJUEF.md.png)](https://freeimage.host/i/MNJUEF)
+
 ## Setting up the databases
 
 To setup the database:
@@ -29,4 +33,3 @@ To setup the test database:
 To connect to the test database:
 ```\c makersbnb_test```
 Then follow the commands in the db/migrations directory for each database.
-

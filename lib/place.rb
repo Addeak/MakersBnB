@@ -33,6 +33,7 @@ class Place
   end
 
   def self.create(host_name:, host_email:, place_title:, place_price:, location:, description:, available_from:, available_until:)
+    p available_from
     result = DatabaseConnection.query(
       "INSERT INTO places (host_name, host_email, place_title, place_price, location, description, available_from, available_until)
       VALUES($1, $2, $3, $4, $5, $6, $7, $8)

@@ -12,7 +12,7 @@ feature 'Requesting a place' do
     fill_in 'comments_box', with: 'Example comments'
     click_button 'Submit'
 
-    expect(current_path).to eq '/places/confirmation'
+    expect(current_path).to eq "/places/#{place_id}/confirmation"
     expect(page).to have_content 'Adam, your request has been successfully submitted.'
   end
 end
