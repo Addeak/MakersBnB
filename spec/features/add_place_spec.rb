@@ -5,6 +5,8 @@ feature 'Adding a new place' do
     fill_in('place_price', with: '10.00') 
     fill_in('location', with: 'London')
     fill_in('description', with: 'This is a place to stay in London')
+    fill_in('available_from', with: '2022-04-07')
+    fill_in('available_until', with: '2022-04-30')
     click_button('Submit')
 
     expect(current_path).to eq('/places/list')
