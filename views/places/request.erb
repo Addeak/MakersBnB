@@ -1,4 +1,4 @@
-<form action="/places/confirmation" method="post">
+<form action="/places/<%= @place.id %>/confirmation" method="post">
   <h1>Fill in the form to request your stay in <%= @place.place_title %> </h1>
   <div>
     <input type="text" name="customer_name" placeholder="Your name" /><br><br>
