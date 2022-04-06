@@ -1,0 +1,1 @@
+ALTER TABLE places ADD available_from DATE, ADD available_until DATE;
