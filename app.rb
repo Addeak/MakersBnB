@@ -53,7 +53,9 @@ class MakersBnB < Sinatra::Base
       place_title: params[:place_title],
       place_price: params[:place_price],
       location: params[:location],
-      description: params[:description]
+      description: params[:description],
+      available_from: params[:available_from],
+      available_until: params[:available_until]
     )
     redirect('/places/list')
   end
