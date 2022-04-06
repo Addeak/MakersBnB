@@ -63,5 +63,23 @@ class MakersBnB < Sinatra::Base
     redirect('/places/list')
   end
 
+  get '/users/register' do
+    erb :"users/register"
+  end
+
+  post '/users/register' do
+    if params[:password] != params[:confirm_password]
+      'Error: passwords do not match'
+    else
+      User.create(
+        user_first_name: params[:user_first_name],
+        user_surname: params[:user_surname],
+        user_email: params[:user_email],
+        user_password: params[:user_password],
+        mobile_number: params[:mobile_number],
+      )
+    end
+  end
+
   run! if app_file == $0
 end
