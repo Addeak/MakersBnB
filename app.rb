@@ -63,5 +63,9 @@ class MakersBnB < Sinatra::Base
     redirect('/places/list')
   end
 
+  get '/users/myrequests' do
+    'You have no bookings.'
+  end
+
   run! if app_file == $0
 end
