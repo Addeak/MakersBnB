@@ -46,7 +46,7 @@ class MakersBnB < Sinatra::Base
     erb :"places/add"
   end
 
-  post '/places' do
+  post '/places/list' do
     Place.create(
       host_name: params[:host_name],
       host_email: params[:host_email],
@@ -55,7 +55,7 @@ class MakersBnB < Sinatra::Base
       location: params[:location],
       description: params[:description]
     )
-    redirect('/places')
+    redirect('/places/list')
   end
 
   run! if app_file == $0
