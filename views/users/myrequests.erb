@@ -1,0 +1,24 @@
+<% if @bookings.empty? %>
+  <p>You have no bookings</p>
+<% else %>
+  <div class="requests-container">
+    <div class="requests">
+    <table>
+      <tr>
+        <th>Place title</th>
+        <th>Date from</th>
+        <th>Date until</th>
+        <th>Status</th>
+      </tr>
+      <% @bookings.each do |booking| %>
+        <tr>
+          <td><%= booking.place_title%></td>
+          <td><%= booking.date_from%></td>
+          <td><%= booking.date_until%></td>
+          <td><%= booking.status%></td>
+        </tr>
+      <% end %>
+    </table>
+    </div>
+  </div>
+<% end %>

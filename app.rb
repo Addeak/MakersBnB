@@ -64,7 +64,8 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/users/myrequests' do
-    'You have no bookings.'
+    @bookings = Booking.user_list(user_id: session[:user_id])
+    erb :'users/myrequests'
   end
 
   run! if app_file == $0
