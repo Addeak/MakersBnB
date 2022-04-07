@@ -30,15 +30,18 @@ class MakersBnB < Sinatra::Base
     erb :'places/request'
   end
 
-  post '/places/confirmation' do
+  post '/places/:id/confirmation' do
+    @place = Place.find(id: params[:id])
     @customer = params[:customer_name]
-    Request.send_email(
-      customer_name: params[:customer_name],
-      customer_email: params[:customer_email],
-      check_in: params[:check_in],
-      check_out: params[:check_out],
-      comments: params[:comments_box]
-    )
+   
+    #Notifier.send_email
+    # (
+    #   customer_name: params[:customer_name],
+    #   customer_email: params[:customer_email],
+    #   check_in: params[:check_in],
+    #   check_out: params[:check_out],
+    #   comments: params[:comments_box]
+    # )
     erb :'places/confirmation'
   end
   
@@ -53,9 +56,29 @@ class MakersBnB < Sinatra::Base
       place_title: params[:place_title],
       place_price: params[:place_price],
       location: params[:location],
-      description: params[:description]
+      description: params[:description],
+      available_from: params[:available_from],
+      available_until: params[:available_until]
     )
     redirect('/places/list')
+  end
+
+  get '/users/register' do
+    erb :"users/register"
+  end
+
+  post '/users/register' do
+    if params[:password] != params[:confirm_password]
+      'Error: passwords do not match'
+    else
+      User.create(
+        user_first_name: params[:user_first_name],
+        user_surname: params[:user_surname],
+        user_email: params[:user_email],
+        user_password: params[:user_password],
+        mobile_number: params[:mobile_number],
+      )
+    end
   end
 
   run! if app_file == $0

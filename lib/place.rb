@@ -1,9 +1,9 @@
 require './lib/database_connection'
 
 class Place
-  attr_reader :id, :host_name, :host_email, :place_title, :place_price, :location, :description
+  attr_reader :id, :host_name, :host_email, :place_title, :place_price, :location, :description, :available_from, :available_until
 
-  def initialize(id:, host_name:, host_email:, place_title:, place_price:, location:, description:)
+  def initialize(id:, host_name:, host_email:, place_title:, place_price:, location:, description:, available_from:, available_until:)
     @id = id
     @host_name = host_name
     @host_email = host_email
@@ -11,6 +11,8 @@ class Place
     @place_price = place_price
     @location = location
     @description = description
+    @available_from = available_from
+    @available_until = available_until
   end
 
   def self.all
@@ -23,17 +25,20 @@ class Place
         place_title: place['place_title'],
         place_price: place['place_price'],
         location: place['location'],
-        description: place['description']
+        description: place['description'],
+        available_from: place['available_from'],
+        available_until: place['available_until']
       )
     end
   end
 
-  def self.create(host_name:, host_email:, place_title:, place_price:, location:, description:)
+  def self.create(host_name:, host_email:, place_title:, place_price:, location:, description:, available_from:, available_until:)
+    p available_from
     result = DatabaseConnection.query(
-      "INSERT INTO places (host_name, host_email, place_title, place_price, location, description)
-      VALUES($1, $2, $3, $4, $5, $6)
-      RETURNING id, host_name, host_email, place_title, place_price, location, description;",
-      [host_name, host_email, place_title, place_price, location, description]
+      "INSERT INTO places (host_name, host_email, place_title, place_price, location, description, available_from, available_until)
+      VALUES($1, $2, $3, $4, $5, $6, $7, $8)
+      RETURNING id, host_name, host_email, place_title, place_price, location, description, available_from, available_until;",
+      [host_name, host_email, place_title, place_price, location, description, available_from, available_until]
       )
     Place.new(
       id: result[0]['id'],
@@ -42,7 +47,9 @@ class Place
       place_title: result[0]['place_title'],
       place_price: result[0]['place_price'],
       location: result[0]['location'],
-      description: result[0]['description']
+      description: result[0]['description'],
+      available_from: result[0]['available_from'],
+      available_until: result[0]['available_until']
       )
   end
   
@@ -55,7 +62,9 @@ class Place
       place_title: result[0]['place_title'], 
       place_price: result[0]['place_price'], 
       location: result[0]['location'], 
-      description: result[0]['description']
+      description: result[0]['description'],
+      available_from: result[0]['available_from'],
+      available_until: result[0]['available_until']
     )
   end
 end
