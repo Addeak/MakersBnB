@@ -1,5 +1,5 @@
 require 'booking'
-require './spec/booking_test_helper'
+require './spec/database_helper'
 
 describe Booking do
   describe '.create' do
