@@ -1,0 +1,190 @@
+body {
+  background-color: white;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+.nav {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 10;
+  background-color: rgb(238, 218, 222);
+}
+
+.nav-list
+{
+  position: flex;
+  justify-content: flex-end;
+  margin: 0 auto;
+  display: flex;
+  margin-right: 2rem;
+  list-style: none;
+  float: right;
+  padding: 10px;
+
+}
+
+.nav-list-2 {
+  margin-top: -10px;
+  display: flex;
+  margin-left: 2rem;
+  list-style: none;
+  float: left;
+  padding: 20px;
+
+}
+.nav-list-2 li {
+  padding: 5px;
+  height: 10px;
+}
+
+.nav-list li {
+  padding: 5px;
+  height: 10px;
+}
+
+#user-email,
+#user-password {
+  width: 200px;
+  height: 30px;
+  border-color: #6c63ff;
+  background-color: white;
+  font-size: 16px;
+}
+
+#log-in-button,
+#register-button {
+  width: 100px;
+  height: 31px;
+  padding: 5px 5px;
+  border-radius: 20px;
+  border-color: #6c63ff;
+  background-color: white;
+  font-size: 16px;
+  color: #6c63ff;
+}
+
+#myplaces-button,
+#myrequests-button, #submit-request {
+  width: 130px;
+  height: 35px;
+  padding: 5px 5px;
+  border-radius: 20px;
+  border-color: #6c63ff;
+  background-color: white;
+  font-size: 16px;
+  color: #6c63ff;
+}
+#addplace-button {
+  width: 150px;
+  height: 50px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border-color: #E54F6D;
+  background-color: #E54F6D;
+  font-size: 16px;
+  color: white;
+}
+#addplace-button:hover {
+  color: #E54F6D;
+  background-color: white;
+}
+#myplaces-button:hover,
+#myrequests-button:hover,
+#submit-request:hover,
+#log-in-button:hover,
+#register-button:hover {
+  background-color: #6c63ff;
+  color: white;
+}
+
+.container-form {
+  margin: -10px 100px;
+}
+.container{
+  margin: 50px 100px;
+}
+
+h1 {
+  font-size: 60px;
+  font-style: bold;
+  text-align: center;
+  color: #6c63ff;
+  text-shadow: 2px 2px black;
+}
+
+h2 {
+  margin: 50px 20px;
+  font-size: 30px;
+  font-style: bold;
+  text-align: center;
+  color: #6c63ff;
+  text-shadow: 1px 1px black;
+}
+
+h3 {
+  font-size: 30px;
+  font-style: bold;
+  text-align: center;
+  color: #6c63ff;
+}
+
+h4 {
+  font-size: 22px;
+  color: #E54F6D;
+  text-shadow: 1px 1px black;
+
+}
+
+h5 {
+  font-size: 16px;
+}
+
+#confirmation-text {
+  font-size: 30px;
+  margin-top: 200px;
+}
+
+.request-form, .listings {
+  position: absolute;
+  width: 80%;
+  padding: 20px 20px;
+}
+
+
+#host_name,
+#host_email,
+#place_title,
+#place_price,
+#location,
+#customer_email,
+#customer_name {
+  width: 400px;
+  height: 30px;
+}
+
+#description, #comments_box {
+  width: 400px;
+  height: 200px;
+}
+
+.list-item {
+  list-style: none;
+}
+
+.container-list {
+  padding: 20px 200px;
+  margin: 10px 30px;
+}
+
+.list-item {
+  border: 2px solid rgb(238, 218, 222);
+  background-color: rgb(238, 218, 222);
+  padding: 20px 80px;
+  font-size: 16px;
+}
+
+.list-item li {
+  margin-top: 10px;
+}

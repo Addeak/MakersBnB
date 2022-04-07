@@ -79,6 +79,10 @@ class MakersBnB < Sinatra::Base
         mobile_number: params[:mobile_number],
       )
     end
+
+  get '/users/myrequests' do
+    @bookings = Booking.user_list(user_id: session[:user_id])
+    erb :'users/myrequests'
   end
 
   run! if app_file == $0
