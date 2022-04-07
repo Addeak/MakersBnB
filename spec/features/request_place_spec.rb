@@ -1,4 +1,4 @@
-feature 'Requesting a place' do
+xfeature 'Requesting a place' do
   scenario 'A customer can request a stay in one of the places' do
     result = DatabaseConnection.query(
       "INSERT INTO places (host_name, host_email, place_title, place_price, location, description) 
