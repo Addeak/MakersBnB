@@ -1,4 +1,4 @@
-feature 'Making a booking' do
+xfeature 'Making a booking' do
   scenario 'A customer user with no requests, can see an empty list of requests' do
     visit '/'
     click_button 'My Requests'
