@@ -1,114 +1,10 @@
 <head>
-<style>
-body {
-	background-color: white;
-	text-align: center;
-}
-  .nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  z-index: 10;
-  background-color: rgb(238, 218, 222);
-}
-
-.nav-list
-{
-  position: flex;
-  justify-content: flex-end;
-  margin: 0 auto;
-  display: flex;
-  margin-right: 2rem;
-  list-style: none;
-  float: right;
-  padding: 10px;
-
-}
-
-.nav-list-2 {
-  margin-top: -10px;
-  display: flex;
-  margin-left: 2rem;
-  list-style: none;
-  float: left;
-  padding: 20px;
-
-}
-.nav-list-2 li {
-  padding: 5px;
-  height: 10px;
-}
-
-.nav-list li {
-  padding: 5px;
-  height: 10px;
-}
-
-#user-email,
-#user-password {
-  width: 200px;
-  height: 30px;
-  border-color: #6c63ff;
-  background-color: white;
-  font-size: 16px;
-}
-
-#log-in-button,
-#register-button {
-  width: 100px;
-  height: 31px;
-  padding: 5px 5px;
-  border-radius: 20px;
-  border-color: #6c63ff;
-  background-color: white;
-  font-size: 16px;
-  color: #6c63ff;
-}
-
-#myplaces-button,
-#myrequests-button, #submit-request {
-  width: 130px;
-  height: 35px;
-  padding: 5px 5px;
-  border-radius: 20px;
-  border-color: #6c63ff;
-  background-color: white;
-  font-size: 16px;
-  color: #6c63ff;
-}
-
-#myplaces-button:hover,
-#myrequests-button:hover,
-#submit-request:hover,
-#log-in-button:hover,
-#register-button:hover {
-  background-color: #6c63ff;
-  color: white;
-}
-.container {
-  margin: 150px 100px;
-}
-
-h3 {
-  font-size: 30px;
-	font-style: bold;
-  text-align: center;
-  color: #6c63ff;
-}
-.request-form {
-  position: absolute;
-  width: 80%;
-  padding: 20px 20px;
-}
-#customer_email,
-#customer_name {
-  width: 260px;
-}
-</style>
-  </head>
-  <nav class="nav" id="nav">
+<link rel="stylesheet" href="<%= url("/stylesheets/style.css") %>">
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<nav class="nav" id="nav">
   <ol class="nav-list">
   <li><input type="textbox" name="user-email" id="user-email" placeholder="Enter your email"></li>
   <li><input type="textbox" name="user-password" id="user-password" placeholder="Enter your password"></li>
@@ -120,7 +16,7 @@ h3 {
 <li><a href="/users/myrequests"><button id="myrequests-button">My Requests</button></a></li>
 </ol>
 </nav>
-<main class="container">
+<main class="container-form">
 <form action="/places/<%= @place.id %>/confirmation" method="post">
   <div class="request-form">
    <h3>Fill in the form to request your stay in <%= @place.place_title %> </h3>
@@ -130,12 +26,11 @@ h3 {
     <input type="date" name="check_in" min="<%= Date.today %>" max="2032-04-04" /><br><br>
     <label for="check_out">Check-out date: </label>
     <input type="date" name="check_out" min="<%= Date.today + 1 %>" max="2032-04-04" /><br><br>
-    <textarea name="comments_box" id="comments_box" rows="5" cols="30" placeholder="Add any comments here..."></textarea><br><br>
+    <textarea name="comments_box" id="comments_box" placeholder="Add any comments here..."></textarea><br><br>
     <input type="submit" id="submit-request" value="Submit" />
   </div>
 </form>
 </main>
-  </body>
-  <footer class="footer">
-  </footer>
+<footer class="footer">
+</footer>
 
