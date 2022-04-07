@@ -1,3 +1,24 @@
-
-<h1><%= @customer %>, your request has been successfully submitted.</h1>
-<h2>Please contact your host <%= @place.host_email %></h2>
+<head>
+<link rel="stylesheet" href="<%= url("/stylesheets/style.css") %>">
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<nav class="nav" id="nav">
+  <ol class="nav-list">
+  <li><input type="textbox" name="user-email" id="user-email" placeholder="Enter your email"></li>
+  <li><input type="textbox" name="user-password" id="user-password" placeholder="Enter your password"></li>
+  <li><input type="submit" id="log-in-button" value="Log-in"> </li>
+  <li><a href="/users/register"><button id="register-button">Register</button></a></li>
+</ol>
+<ol class="nav-list-2">
+<li><a href="/users/myplaces"><button id="myplaces-button">My Places</button></a></li>
+<li><a href="/users/myrequests"><button id="myrequests-button">My Requests</button></a></li>
+</ol>
+</nav>
+<main class="container-form">
+<h3 id="confirmation-text"><%= @customer %>, your request has been successfully submitted.</h3>
+<h4>Please contact your host <%= @place.host_email %></h4>
+</main>
+<footer class="footer">
+</footer>
