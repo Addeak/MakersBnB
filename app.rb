@@ -65,7 +65,6 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/users/register' do
-    p params
     if params[:user_password] != params[:confirm_password]
       'Error: passwords do not match'
     else
