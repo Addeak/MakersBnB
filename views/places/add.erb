@@ -1,11 +1,38 @@
+<head>
+<link rel="stylesheet" href="<%= url("/stylesheets/style.css") %>">
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<nav class="nav" id="nav">
+  <ol class="nav-list">
+  <li><input type="textbox" name="user-email" id="user-email" placeholder="Enter your email"></li>
+  <li><input type="textbox" name="user-password" id="user-password" placeholder="Enter your password"></li>
+  <li><input type="submit" id="log-in-button" value="Log-in"> </li>
+  <li><a href="/users/register"><button id="register-button">Register</button></a></li>
+</ol>
+<ol class="nav-list-2">
+<li><a href="/users/myplaces"><button id="myplaces-button">My Places</button></a></li>
+<li><a href="/users/myrequests"><button id="myrequests-button">My Requests</button></a></li>
+</ol>
+</nav>
+<main class="container-form">
 <form action="/places/list" method="post">
-  <input type="text" name="host_name" placeholder="Host name" /><br><br>
-  <input type="text" name="host_email" placeholder="Email address" /><br><br>
-  <input type="text" name="place_title" placeholder="Title" /><br><br>
-  <input type="text" name="place_price" placeholder="Price per night" /><br><br>
-  <input type="text" name="location" placeholder="Location" /><br><br>
-  <input type="text" name="description" placeholder="Description" /><br><br>
-  <input type="date" name="available_from" min="<%= Date.today %>" max="2032-04-04" /><br><br>
-  <input type="date" name="available_until" min="<%= Date.today + 1 %>" max="2032-04-04" /><br><br>
-  <input type="submit" value="Submit" />
+<div class="request-form">
+<h3> Add your place </h3>
+  <input type="text" name="host_name" id="host_name" placeholder="Host name" /><br><br>
+  <input type="text" name="host_email" id="host_email" placeholder="Email address" /><br><br>
+  <input type="text" name="place_title" id="place_title" placeholder="Title" /><br><br>
+  <input type="text" name="place_price" id="place_price" placeholder="Price per night" /><br><br>
+  <input type="text" name="location" id="location" placeholder="Location" /><br><br>
+  <textarea name="description" id="description" placeholder="Description"></textarea><br><br>
+  <label for="available_from">Available from: </label>
+  <input type="date" name="available_from" id="available_from" min="<%= Date.today %>" max="2032-04-04" /><br><br>
+  <label for="available_until">Available until: </label>
+  <input type="date" name="available_until" id="available_until" min="<%= Date.today + 1 %>" max="2032-04-04" /><br><br>
+  <input type="submit" id="submit-request" value="Submit" />
 </form>
+</div>
+</main>
+<footer class="footer">
+</footer>

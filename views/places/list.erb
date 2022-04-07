@@ -1,27 +1,49 @@
+<head>
+<link rel="stylesheet" href="<%= url("/stylesheets/style.css") %>">
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<nav class="nav" id="nav">
+  <ol class="nav-list">
+  <li><input type="textbox" name="user-email" id="user-email" placeholder="Enter your email"></li>
+  <li><input type="textbox" name="user-password" id="user-password" placeholder="Enter your password"></li>
+  <li><input type="submit" id="log-in-button" value="Log-in"> </li>
+  <li><a href="/users/register"><button id="register-button">Register</button></a></li>
+</ol>
+<ol class="nav-list-2">
+<li><a href="/users/myplaces"><button id="myplaces-button">My Places</button></a></li>
+<li><a href="/users/myrequests"><button id="myrequests-button">My Requests</button></a></li>
+</ol>
+</nav>
+<main class="container">
 <h1>Welcome to GorillaBnB</h1>
+<!-- To be deleted in future! -->
 <form action="/users/myrequests" method="get">
   <input type="submit" value="My Requests" />
 </form>
+<!-- Up to here -->
 <form action="/places/add" method="get">
-<input type="Submit" value="Add a place" />
+<input type="Submit" id="addplace-button" value="Add a place" />
 </form>
-
-<div class="list-container"> <!-- this is for styling later> -->
+<div class="container-list">
+<h2>Places to stay: </h2>
 <% @places.each do |place| %>
-<li class="list-item">
-<span><%= place.place_title %></span>
-<span><%= place.location %></span>
-<span>£<%= place.place_price %> per night</span>
-<span>
+<ul class="list-item">
+<li><h4><%= place.place_title %></h4></li>
+<li><h5>Location: <%= place.location %></h5></li>
+<li><h5>Price: £<%= place.place_price %> per night</h5></li>
+<li><h5>Description: <%= place.description %></h5></li>
+<li><h5>Available from: <%= place.available_from %></h5></li>
+<li><h5>Available until: <%= place.available_until %></h5></li>
 <form action="/places/<%= place.id %>/request" method="get">
-<input type="Submit" value="Request Stay" />
+<input type="Submit" id="submit-request" value="Request Stay" />
+</ul>
 </form>
 </span>
 <br />
-<span><%= place.description %></span>
-<span><%= place.available_from %></span>
-<span><%= place.available_until %></span>
-</li>
 <% end %>
 </div>
-
+</main>
+<footer class="footer">
+</footer>
