@@ -33,15 +33,12 @@ class MakersBnB < Sinatra::Base
   post '/places/:id/confirmation' do
     @place = Place.find(id: params[:id])
     @customer = params[:customer_name]
-   
-    #Notifier.send_email
-    # (
-    #   customer_name: params[:customer_name],
-    #   customer_email: params[:customer_email],
-    #   check_in: params[:check_in],
-    #   check_out: params[:check_out],
-    #   comments: params[:comments_box]
-    # )
+    Booking.create(
+      guest_id: session[:user_id], #placeholder for the user id stored in the session
+      place_id: params[:id],
+      check_in_date: params[:check_in],
+      check_out_date: params[:check_out]
+    )
     erb :'places/confirmation'
   end
   
