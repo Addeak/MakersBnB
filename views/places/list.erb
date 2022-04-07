@@ -18,6 +18,10 @@
 </nav>
 <main class="container">
 <h1>Welcome to GorillaBnB</h1>
+<%if @user %>
+<h3>Welcome, <%= @user.user_email %></h3>
+<% end %>
+<br>
 <form action="/places/add" method="get">
 <input type="Submit" id="addplace-button" value="Add a place" />
 </form>

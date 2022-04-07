@@ -21,6 +21,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/places/list' do
+    @user = User.find(id: session[:user_id])
     @places = Place.all
     erb :'places/list'
   end
@@ -69,14 +70,15 @@ class MakersBnB < Sinatra::Base
     if params[:user_password] != params[:confirm_password]
       'Error: passwords do not match'
     else
-      User.create(
+      user = User.create(
         user_first_name: params[:user_first_name],
         user_surname: params[:user_surname],
         user_email: params[:user_email],
         user_password: params[:user_password],
         mobile_number: params[:mobile_number],
       )
-      "Registration successful"
+      session[:user_id] = user.id
+      redirect('/places/list')
     end
   end
 

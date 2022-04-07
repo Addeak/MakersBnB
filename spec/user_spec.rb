@@ -20,5 +20,27 @@ describe User do
       expect(user.mobile_number).to eq '07777000111'
     end
   end
+
+  describe '.find' do
+    it 'find a user by ID' do
+      user = User.create(
+        user_first_name: 'Jane',
+        user_surname: 'Doe',
+        user_email: 'janedoe@whatever.com',
+        user_password: 'password1',
+        mobile_number: '07777000111'
+      )
+
+      # persisted_data = PG.connect(dbname: "makersbnb_test").query("SELECT * FROM users WHERE id = #{user.id}")
+      result = User.find(id: user.id)
+      expect(result.id).to eq user.id
+      expect(result.user_email).to eq user.user_email
+    end
+  end
+    describe '.find' do
+      it 'returns nil if there is no ID given' do
+        expect(User.find(id: nil)).to eq nil
+    end
+  end
 end
 
