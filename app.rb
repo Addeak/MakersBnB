@@ -68,7 +68,8 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/users/register' do
-    if params[:password] != params[:confirm_password]
+    p params
+    if params[:user_password] != params[:confirm_password]
       'Error: passwords do not match'
     else
       User.create(
@@ -78,7 +79,9 @@ class MakersBnB < Sinatra::Base
         user_password: params[:user_password],
         mobile_number: params[:mobile_number],
       )
+      "Registration successful"
     end
+  end
 
   get '/users/myrequests' do
     @bookings = Booking.user_list(user_id: session[:user_id])
