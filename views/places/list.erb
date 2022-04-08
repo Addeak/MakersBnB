@@ -6,10 +6,12 @@
 </head>
 <nav class="nav" id="nav">
   <ol class="nav-list">
-  <li><input type="textbox" name="user-email" id="user-email" placeholder="Enter your email"></li>
-  <li><input type="textbox" name="user-password" id="user-password" placeholder="Enter your password"></li>
-  <li><input type="submit" id="log-in-button" value="Log-in"> </li>
+  <form action="/sessions" method="post">
+  <li><input type="textbox" name="user_email" id="user-email" placeholder="Enter your email"></li>
+  <li><input type="textbox" name="user_password" id="user-password" placeholder="Enter your password"></li>
+  <li><input type="submit" name='Login' id="log-in-button" value="Log-in"> </li>
   <li><a href="/users/register"><button id="register-button">Register</button></a></li>
+</form>
 </ol>
 <ol class="nav-list-2">
 <li><a href="<%= url("/users/myplaces") %>"><button id="myplaces-button">My Places</button></a></li>
