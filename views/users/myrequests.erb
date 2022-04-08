@@ -1,24 +1,41 @@
-<% if @bookings.empty? %>
+<head>
+<link rel="stylesheet" href="<%= url("/stylesheets/style.css") %>">
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<nav class="nav" id="nav">
+ <form action="/sessions" method="post">
+  <ol class="nav-list">
+  <li><input type="textbox" name="user_email" id="user-email" placeholder="Enter your email"></li>
+  <li><input type="textbox" name="user_password" id="user-password" placeholder="Enter your password"></li>
+  <li><input type="submit" name='Login' id="log-in-button" value="Log-in"> </li>
+  </form>
+  <form action="/users/register" method="get">
+  <li><a href="<%= url("/users/register") %>"><button id="register-button">Register</button></a></li>
+  </form>
+</ol>
+<ol class="nav-list-2">
+<li><a href="<%= url("/users/myplaces") %>"><button id="myplaces-button">My Places</button></a></li>
+<li><a href="<%= url("/users/myrequests") %>"><button id="myrequests-button">My Requests</button></a></li>
+</ol>
+</nav>
+<main class="container">
+<h1>Your bookings</h1>
+<% if @user_bookings.empty? %>
   <p>You have no bookings</p>
 <% else %>
-  <div class="requests-container">
-    <div class="requests">
-    <table>
-      <tr>
-        <th>Place title</th>
-        <th>Date from</th>
-        <th>Date until</th>
-        <th>Status</th>
-      </tr>
-      <% @bookings.each do |booking| %>
-        <tr>
-          <td><%= booking.place_title%></td>
-          <td><%= booking.date_from%></td>
-          <td><%= booking.date_until%></td>
-          <td><%= booking.status%></td>
-        </tr>
-      <% end %>
-    </table>
-    </div>
+  <div class="container-list">
+  <% @user_bookings.each do |booking| %>
+  <ul class="list-item">
+<li><h4><%= booking.place_title %></h4></li>
+<li><h5>Location: <%= booking.location %></h5></li>
+<li><h5>Price: £<%= booking.place_price %> per night</h5></li>
+<li><h5>Check-in on: <%= booking.check_in_date %></h5></li>
+<li><h5>Check-out on: <%= booking.check_out_date %></h5></li>
+<li><h5>Status: <%= booking.status %></h5></li>
+</ul>
+  <% end %>
   </div>
 <% end %>
+</main>

@@ -3,6 +3,8 @@ require 'sinatra/reloader'
 require './database_connection_setup'
 require_relative './lib/place'
 require_relative './lib/user'
+require './lib/booking'
+require './lib/user_booking'
 
 
 class MakersBnB < Sinatra::Base
@@ -83,7 +85,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/users/myrequests' do
-    @bookings = Booking.user_list(user_id: session[:user_id])
+    @user_bookings = UserBooking.list(user_id: session[:user_id])
     erb :'users/myrequests'
   end
 
