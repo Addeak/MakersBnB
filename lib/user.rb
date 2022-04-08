@@ -26,13 +26,4 @@ class User
       mobile_number: result[0]['mobile_number'],
       )
   end
-
-  def list_bookings
-    result = DatabaseConnection.query(
-      "SELECT bookings.id, places.id AS place_id_real, guest_id, check_in_date, check_out_date, status, place_title, place_price, location 
-      FROM bookings 
-      LEFT JOIN places ON place_id = places.id 
-      WHERE guest_id = $1;", [@id]
-    )
-  end
 end
