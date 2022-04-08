@@ -1,6 +1,7 @@
 feature 'user_authentication' do
   scenario 'user signs in & sees name on the home page' do
     register_user
+    click_button 'Log-out'
     visit('/')
     fill_in('user_email', with: 'jondoe@example.org')
     fill_in('user_password', with: 'password')
@@ -12,6 +13,7 @@ feature 'user_authentication' do
 
   scenario 'a user sees an error if they get their email wrong' do
     register_user
+    click_button 'Log-out'
     visit('/')
     fill_in('user_email', with: 'dfgsdfgf@gfhs.com')
     fill_in('user_password', with: 'password')
@@ -23,6 +25,7 @@ feature 'user_authentication' do
 
   scenario 'a user sees an error if they get their password wrong' do
     register_user
+    click_button 'Log-out'
     visit('/')
     fill_in('user_email', with: 'jondoe@example.org')
     fill_in('user_password', with: 'passwort')
@@ -35,6 +38,7 @@ feature 'user_authentication' do
 
   scenario 'a user can sign out' do
     register_user
+    click_button 'Log-out'
     visit('/')
     fill_in('user_email', with: 'jondoe@example.org')
     fill_in('user_password', with: 'password')
