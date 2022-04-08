@@ -3,5 +3,5 @@ require 'database_connection'
 
 def clear_test_database
   DatabaseConnection.setup("makersbnb_test")
-  DatabaseConnection.query("TRUNCATE places, bookings;")
+  DatabaseConnection.query("TRUNCATE places, bookings, users;")
 end

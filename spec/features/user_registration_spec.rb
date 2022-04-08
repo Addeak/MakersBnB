@@ -9,6 +9,6 @@ feature "User registration" do
     fill_in("Phone number", with: "07123456789")
     click_button("Submit")
 
-    expect(page).to have_content("Registration successful")
+    expect(page).to have_content("Welcome, jondoe@whatever.com")
   end
 end

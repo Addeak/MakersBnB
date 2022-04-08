@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require './database_connection_setup'
 require_relative './lib/place'
+require_relative './lib/user'
 
 
 class MakersBnB < Sinatra::Base
@@ -21,6 +22,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/places/list' do
+    @user = User.find(id: session[:user_id])
     @places = Place.all
     erb :'places/list'
   end
@@ -65,24 +67,34 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/users/register' do
-    p params
     if params[:user_password] != params[:confirm_password]
       'Error: passwords do not match'
     else
-      User.create(
+      user = User.create(
         user_first_name: params[:user_first_name],
         user_surname: params[:user_surname],
         user_email: params[:user_email],
         user_password: params[:user_password],
         mobile_number: params[:mobile_number],
       )
-      "Registration successful"
+      session[:user_id] = user.id
+      redirect('/places/list')
     end
   end
 
   get '/users/myrequests' do
     @bookings = Booking.user_list(user_id: session[:user_id])
     erb :'users/myrequests'
+  end
+
+  get '/sessions/new' do
+    redirect('/places/list')
+  end
+
+  post '/sessions' do
+    user = User.authenticate(email: params[:user_email], password: params[:user_password])
+    session[:user_id] = user.id
+    redirect('/places/list')
   end
 
   run! if app_file == $0
