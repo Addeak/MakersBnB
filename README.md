@@ -18,7 +18,7 @@ Wireframe:
 
 [![MowFbS.md.png](https://iili.io/MowFbS.md.png)](https://freeimage.host/i/MowFbS)
 
-Wireframe 2:
+Wireframe
 
 [![MNJUEF.md.png](https://iili.io/MNJUEF.md.png)](https://freeimage.host/i/MNJUEF)
 

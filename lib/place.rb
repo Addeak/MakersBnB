@@ -1,6 +1,6 @@
 require './lib/database_connection'
 
-class Place
+class Place 
   attr_reader :id, :host_name, :host_email, :place_title, :place_price, :location, :description, :available_from, :available_until
 
   def initialize(id:, host_name:, host_email:, place_title:, place_price:, location:, description:, available_from:, available_until:)
