@@ -1,0 +1,1 @@
+ALTER TABLE "public"."places" ADD FOREIGN KEY ("host_id") REFERENCES "public"."users" ("id");

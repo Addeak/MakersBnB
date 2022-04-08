@@ -40,7 +40,7 @@
 <br>
 <%if @user %>
 <form action="/places/add" method="get">
-<input type="Submit" id="addplace-button" value="Add a place" />
+<input type="submit" id="addplace-button" value="Add a place" />
 </form>
 <% else %>
 <form action="/places/unregistered_user" method="post">
@@ -59,7 +59,7 @@
 <li><h5>Available until: <%= place.available_until %></h5></li>
 <%if @user %>
 <form action="/places/<%= place.id %>/request" method="get">
-<input type="Submit" id="submit-request" value="Request Stay" />
+<input type="submit" id="submit-request" value="Request Stay" />
 </ul>
 </form>
 <% else %>
