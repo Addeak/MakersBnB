@@ -19,7 +19,7 @@ describe UserBooking do
                                         check_out_date: booking_result[0]['check_out_date'],
                                         status: booking_result[0]['status']
 
-      # expect(user2._bookings).to eq []
+      expect(UserBooking.list(user_id: user2[0]['id'])).to eq []
       expect(UserBooking.list(user_id: user1[0]['id']).first.booking_id).to eq booking_object.id
       expect(UserBooking.list(user_id: user1[0]['id']).first.guest_id).to eq booking_object.guest_id
       expect(UserBooking.list(user_id: user1[0]['id']).first.place_id).to eq booking_object.place_id
