@@ -61,7 +61,7 @@ feature 'user_authentication' do
     )
     visit('/')
     fill_in('user_email', with: 'janedoe@whatever.com')
-    fill_in('user_password', with: 'password2')
+    fill_in('user_password', with: 'password1')
     click_button('Login')
     click_button('Logout')
     expect(page).not_to have_content('Welcome, janedoe@whatever.com')

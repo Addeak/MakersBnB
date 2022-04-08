@@ -7,20 +7,28 @@
 <nav class="nav" id="nav">
  <form action="/sessions" method="post">
   <ol class="nav-list">
+  <%if !@user %>
   <li><input type="textbox" name="user_email" id="user-email" placeholder="Enter your email"></li>
   <li><input type="textbox" name="user_password" id="user-password" placeholder="Enter your password"></li>
   <li><input type="submit" name='Login' id="log-in-button" value="Log-in"> </li>
+   <% end %>
   </form>
   <form action="/sessions/destroy" method="post">
-  <li><input type="submit" name='Logout' id="log-out-button" value="Log-out"> </li>
+  <%if @user %>
+  <li><input type="submit" name='Logout' id="log-out-button" value="Log-out"></li>
+  <% end %>
   </form>
+  <%if !@user %>
   <form action="/users/register" method="get">
   <li><a href="<%= url("/users/register") %>"><button id="register-button">Register</button></a></li>
   </form>
-  </ol>
+   <% end %>
+   </ol>
 <ol class="nav-list-2">
+<%if @user %>
 <li><a href="<%= url("/users/myplaces") %>"><button id="myplaces-button">My Places</button></a></li>
 <li><a href="<%= url("/users/myrequests") %>"><button id="myrequests-button">My Requests</button></a></li>
+<% end %>
 </ol>
 </nav>
 <main class="container">
@@ -30,9 +38,15 @@
 <h3>Welcome, <%= @user.user_email %></h3>
 <% end %>
 <br>
+<%if @user %>
 <form action="/places/add" method="get">
 <input type="Submit" id="addplace-button" value="Add a place" />
 </form>
+<% else %>
+<form action="/places/unregistered_user" method="post">
+<input type="Submit" id="addplace-button" value="Add a place" />
+</form>
+<% end %>
 <div class="container-list">
 <h2>Places to stay: </h2>
 <% @places.each do |place| %>
@@ -43,10 +57,17 @@
 <li><h5>Description: <%= place.description %></h5></li>
 <li><h5>Available from: <%= place.available_from %></h5></li>
 <li><h5>Available until: <%= place.available_until %></h5></li>
+<%if @user %>
 <form action="/places/<%= place.id %>/request" method="get">
 <input type="Submit" id="submit-request" value="Request Stay" />
 </ul>
 </form>
+<% else %>
+<form action="/places/unregistered_user" method="post">
+<input type="Submit" id="submit-request" value="Request Stay" />
+</ul>
+</form>
+<% end %>
 </span>
 <br />
 <% end %>
