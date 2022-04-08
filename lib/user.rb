@@ -47,6 +47,7 @@ class User
       "SELECT * FROM users WHERE user_email = $1",
       [email]
     )
+    return unless result.any?
     user = User.new(
       id: result[0]['id'], 
       user_first_name: result[0]['user_first_name'],
