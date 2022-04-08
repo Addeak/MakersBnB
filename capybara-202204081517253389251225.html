@@ -1,5 +1,5 @@
 <head>
-<link rel="stylesheet" href="<%= url("/stylesheets/style.css") %>">
+<link rel="stylesheet" href="http://www.example.com/stylesheets/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com"> 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
   <li><input type="submit" name='Logout' id="log-out-button" value="Log-out"> </li>
   </form>
   <form action="/users/register" method="get">
-  <li><a href="<%= url("/users/register") %>"><button id="register-button">Register</button></a></li>
+  <li><a href="http://www.example.com/users/register"><button id="register-button">Register</button></a></li>
   </form>
   </ol>
 <ol class="nav-list-2">
@@ -24,8 +24,8 @@
 </ol>
 </nav>
 <main class="container-form">
-<h3 id="confirmation-text"><%= @customer %>, your request has been successfully submitted.</h3>
-<h4>Please contact your host <%= @place.host_email %></h4>
+<h3 id="confirmation-text">, your request has been successfully submitted.</h3>
+<h4>Please contact your host </h4>
 </main>
 <footer class="footer">
 </footer>
