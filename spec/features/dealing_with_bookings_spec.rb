@@ -22,7 +22,7 @@ xfeature 'Dealing with bookings' do
     fill_in 'user_password', with: 'password'
     click_button 'My Requests'
 
-    expect(page).to have_content ????????????
+    # expect(page).to have_content ????????????
     expect(page).to have_content 'Status: Pending'
   end
 end
