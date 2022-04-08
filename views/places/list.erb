@@ -27,7 +27,7 @@
 <% end %>
 <br>
 <form action="/places/add" method="get">
-<input type="Submit" id="addplace-button" value="Add a place" />
+<input type="submit" id="addplace-button" value="Add a place" />
 </form>
 <div class="container-list">
 <h2>Places to stay: </h2>
@@ -40,7 +40,7 @@
 <li><h5>Available from: <%= place.available_from %></h5></li>
 <li><h5>Available until: <%= place.available_until %></h5></li>
 <form action="/places/<%= place.id %>/request" method="get">
-<input type="Submit" id="submit-request" value="Request Stay" />
+<input type="submit" id="submit-request" value="Request Stay" />
 </ul>
 </form>
 </span>
