@@ -54,6 +54,7 @@ body {
 }
 
 #log-in-button,
+#log-out-button,
 #register-button {
   width: 100px;
   height: 31px;
@@ -93,6 +94,7 @@ body {
 #myplaces-button:hover,
 #myrequests-button:hover,
 #submit-request:hover,
+#log-out-button:hover,
 #log-in-button:hover,
 #register-button:hover {
   background-color: #6c63ff;
