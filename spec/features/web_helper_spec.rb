@@ -1,4 +1,6 @@
-def register_user(first_name: 'Jon', surname: 'Doe', email:'jondoe@example.org') 
+
+def register_user(first_name: 'Jon', surname: 'Doe', email: 'jondoe@example.org') 
+
   visit("/users/register")
   fill_in("First name", with: first_name)
   fill_in("Surname", with: surname)

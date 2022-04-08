@@ -1,0 +1,37 @@
+<head>
+<link rel="stylesheet" href="http://www.example.com/stylesheets/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<nav class="nav" id="nav">
+ <form action="/sessions" method="post">
+  <ol class="nav-list">
+  <li><input type="textbox" name="user_email" id="user-email" placeholder="Enter your email"></li>
+  <li><input type="textbox" name="user_password" id="user-password" placeholder="Enter your password"></li>
+  <li><input type="submit" name='Login' id="log-in-button" value="Log-in"> </li>
+  </form>
+  <form action="/users/register" method="get">
+  <li><a href="http://www.example.com/users/register"><button id="register-button">Register</button></a></li>
+  </form>
+</ol>
+<ol class="nav-list-2">
+<li><a href="http://www.example.com/users/myplaces"><button id="myplaces-button">My Places</button></a></li>
+<li><a href="http://www.example.com/users/myrequests"><button id="myrequests-button">My Requests</button></a></li>
+</ol>
+</nav>
+<main class="container">
+<h1>Your bookings</h1>
+  <div class="container-list">
+  
+  <ul class="list-item">
+<li><h4>Test Place</h4></li>
+<li><h5>Location: London</h5></li>
+<li><h5>Price: £10.00 per night</h5></li>
+<li><h5>Check-in on: 2022-04-04</h5></li>
+<li><h5>Check-out on: 2022-04-07</h5></li>
+<li><h5>Status: Pending</h5></li>
+</ul>
+  
+  </div>
+</main>
