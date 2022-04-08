@@ -6,7 +6,7 @@ xfeature 'Dealing with bookings' do
     expect(page).to have_content 'You have no bookings'
   end
 
-  scenario 'A host can accept a requested booking' do
+  xscenario 'A host can accept a requested booking' do
     register_user
     add_place
     register_user(first_name: 'Michael', surname: 'Jordan', email: 'mjordan@example.org')
@@ -22,7 +22,7 @@ xfeature 'Dealing with bookings' do
     fill_in 'user_password', with: 'password'
     click_button 'My Requests'
 
-    expect(page).to have_content ????????????
+    expect(page).to have_content '????????????'
     expect(page).to have_content 'Status: Pending'
   end
 end
