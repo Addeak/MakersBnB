@@ -48,6 +48,7 @@ class User
       [email]
     )
     return unless result.any?
+    return unless BCrypt::Password.new(result[0]['user_password']) == password
     user = User.new(
       id: result[0]['id'], 
       user_first_name: result[0]['user_first_name'],

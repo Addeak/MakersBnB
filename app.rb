@@ -105,5 +105,11 @@ class MakersBnB < Sinatra::Base
     end
   end
 
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have logged out.'
+    redirect('places/list')
+  end
+
   run! if app_file == $0
 end

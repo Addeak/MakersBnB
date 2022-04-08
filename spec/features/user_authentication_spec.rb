@@ -33,14 +33,38 @@ feature 'user_authentication' do
     expect(page).to have_content('Please check your email or password.')
   end
 
-  xscenario 'wrong user name throws error' do
+  scenario 'a user sees an error if they get their password wrong' do
+    user = User.create(
+      user_first_name: 'Jane',
+      user_surname: 'Doe',
+      user_email: 'janedoe@whatever.com',
+      user_password: 'password1',
+      mobile_number: '07777000111'
+    )
     visit('/')
-    
-    fill_in('user_name', with: 'John Doe')
-    fill_in('password', with: 'fdgsfg')
+    fill_in('user_email', with: 'janedoe@whatever.com')
+    fill_in('user_password', with: 'password2')
 
     click_button('Login')
 
-    expect(page).to have_content('Invalid password!')
+    expect(page).not_to have_content('Welcome, janedoe@whatever.com')
+    expect(page).to have_content('Please check your email or password.')
+  end
+
+  scenario 'a user can sign out' do
+    user = User.create(
+      user_first_name: 'Jane',
+      user_surname: 'Doe',
+      user_email: 'janedoe@whatever.com',
+      user_password: 'password1',
+      mobile_number: '07777000111'
+    )
+    visit('/')
+    fill_in('user_email', with: 'janedoe@whatever.com')
+    fill_in('user_password', with: 'password2')
+    click_button('Login')
+    click_button('Logout')
+    expect(page).not_to have_content('Welcome, janedoe@whatever.com')
+    expect(page).to have_content('You have logged out.')
   end
 end
