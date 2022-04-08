@@ -1,4 +1,6 @@
+
 def register_user(first_name: 'Jon', surname: 'Doe', email: 'jondoe@example.org') 
+
   visit("/users/register")
   fill_in("First name", with: first_name)
   fill_in("Surname", with: surname)
@@ -9,10 +11,10 @@ def register_user(first_name: 'Jon', surname: 'Doe', email: 'jondoe@example.org'
   click_button("Submit")
 end
 
-def add_place(title: 'Test Place')
+def add_place(title: 'Test Place', price: '10.00')
   visit('/places/add')
   fill_in('place_title', with: title)
-  fill_in('place_price', with: '10.00') 
+  fill_in('place_price', with: price) 
   fill_in('location', with: 'London')
   fill_in('description', with: 'This is a place to stay in London')
   fill_in('available_from', with: '2022-04-07')

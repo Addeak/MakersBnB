@@ -23,6 +23,7 @@ feature 'Dealing with bookings' do
     visit '/places/list'
     fill_in 'user_email', with: 'mjordan@example.org'
     fill_in 'user_password', with: 'password'
+
     click_button 'Log-in'
     visit '/users/myrequests'
    

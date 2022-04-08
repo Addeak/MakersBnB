@@ -1,4 +1,5 @@
 require 'bcrypt'
+
 class User
   attr_reader :id, :user_first_name, :user_surname, :user_email, :user_password, :mobile_number
 

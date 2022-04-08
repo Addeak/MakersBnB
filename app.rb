@@ -7,7 +7,6 @@ require_relative './lib/user'
 require './lib/booking'
 require './lib/user_booking'
 
-
 class MakersBnB < Sinatra::Base
 
   enable :sessions
@@ -31,7 +30,7 @@ class MakersBnB < Sinatra::Base
     erb :'places/list'
   end
 
-   get '/places/:id/request' do
+  get '/places/:id/request' do
     @place = Place.find(id: params[:id])
     erb :'places/request'
   end

@@ -22,4 +22,3 @@ feature 'Adding a new place' do
   end
 
 end
-
