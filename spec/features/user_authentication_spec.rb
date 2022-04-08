@@ -40,6 +40,7 @@ feature 'user_authentication' do
     fill_in('user_password', with: 'password')
     click_button('Login')
     click_button('Logout')
+    
     expect(page).not_to have_content('Welcome, janedoe@whatever.com')
     expect(page).to have_content('You have logged out.')
   end

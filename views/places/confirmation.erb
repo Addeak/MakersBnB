@@ -5,19 +5,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
 <nav class="nav" id="nav">
- <form action="/sessions" method="post">
   <ol class="nav-list">
-  <li><input type="textbox" name="user_email" id="user-email" placeholder="Enter your email"></li>
-  <li><input type="textbox" name="user_password" id="user-password" placeholder="Enter your password"></li>
-  <li><input type="submit" name='Login' id="log-in-button" value="Log-in"> </li>
-  </form>
   <form action="/sessions/destroy" method="post">
-  <li><input type="submit" name='Logout' id="log-out-button" value="Log-out"> </li>
+  <li><input type="submit" name='Logout' id="log-out-button" value="Log-out"></li>
   </form>
-  <form action="/users/register" method="get">
-  <li><a href="<%= url("/users/register") %>"><button id="register-button">Register</button></a></li>
-  </form>
-  </ol>
+</ol>
 <ol class="nav-list-2">
 <li><a href="/users/myplaces"><button id="myplaces-button">My Places</button></a></li>
 <li><a href="/users/myrequests"><button id="myrequests-button">My Requests</button></a></li>

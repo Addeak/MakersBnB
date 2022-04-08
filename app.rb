@@ -112,5 +112,11 @@ class MakersBnB < Sinatra::Base
     redirect('places/list')
   end
 
+  post '/places/unregistered_user' do
+    flash[:notice] = 'Please log in or register.'
+    redirect('places/list')
+  end
+
+
   run! if app_file == $0
 end
